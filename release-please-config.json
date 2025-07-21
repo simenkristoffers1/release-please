@@ -1,0 +1,10 @@
+{
+    "packages": {
+        "project-a": {
+            "release-type": "node"
+        },
+        "project-b": {
+            "release-type": "python"
+        }
+    }
+}
