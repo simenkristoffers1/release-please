@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/simenkristoffers1/release-please/compare/project-a-v1.0.2...project-a-v1.1.0) (2025-07-22)
+
+
+### Features
+
+* add dynamic log on startup ([f78f4fe](https://github.com/simenkristoffers1/release-please/commit/f78f4fef3c2ea2a81a6cda6d6e00365ea2c43d3a))
+
 ## [1.0.2](https://github.com/simenkristoffers1/release-please/compare/project-a-v1.0.1...project-a-v1.0.2) (2025-07-21)
 
 
