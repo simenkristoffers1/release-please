@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/simenkristoffers1/release-please/compare/project-c@v1.2.2...project-c@v1.2.3) (2025-07-22)
+
+
+### Bug Fixes
+
+* update c ([96bb79a](https://github.com/simenkristoffers1/release-please/commit/96bb79a0e3389d57fe61df59e112be2842ca36e8))
+
 ## [1.2.2](https://github.com/simenkristoffers1/release-please/compare/project-c@v1.2.1...project-c@v1.2.2) (2025-07-22)
 
 
