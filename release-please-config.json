@@ -4,12 +4,15 @@
     "separate-pull-requests": true,
     "packages": {
         "project-a": {
+            "component": "project-a",
             "release-type": "node"
         },
         "project-b": {
+            "component": "project-b",
             "release-type": "python"
         },
         "project-c": {
+            "component": "project-c",
             "release-type": "simple"
         }
     }
