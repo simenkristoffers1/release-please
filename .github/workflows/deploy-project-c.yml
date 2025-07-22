@@ -1,0 +1,13 @@
+name: Deploy Project C to Staging
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  deploy-staging:
+    runs-on: ubuntu-latest
+    if: startsWith(github.event.release.tag_name, 'project-c@')
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
