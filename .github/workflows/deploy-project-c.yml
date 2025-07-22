@@ -2,7 +2,10 @@ name: Deploy Project C to Staging
 
 on:
   push:
-    tags: ["project-c@*.*.*"]
+    tags:
+      - "v*.*.*"
+  release:
+    types: [created]
 
 jobs:
   deploy-staging:
