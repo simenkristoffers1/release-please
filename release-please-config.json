@@ -1,9 +1,11 @@
 {
     "packages": {
         "project-a": {
+            "component": "project-a",
             "release-type": "node"
         },
         "project-b": {
+            "component": "project-b",
             "release-type": "python"
         }
     }
