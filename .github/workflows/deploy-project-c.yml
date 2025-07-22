@@ -3,7 +3,7 @@ name: Deploy Project C to Staging
 on:
   push:
     tags:
-      - "v*.*.*"
+      - "project-c@v*.*.*"
   release:
     types: [created]
 
@@ -13,3 +13,7 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+
+      - name: Deploy to Staging
+        run: |
+          echo "Deploying Project C version ${{ github.event.release.tag_name }} to staging..."
