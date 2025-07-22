@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/simenkristoffers1/release-please/compare/project-c@v1.1.0...project-c@v1.2.0) (2025-07-22)
+
+
+### Features
+
+* add startup log ([e8d0b2e](https://github.com/simenkristoffers1/release-please/commit/e8d0b2ea005dc9b37e854f54371bdbc84528caa1))
+
 ## [1.1.0](https://github.com/simenkristoffers1/release-please/compare/project-c@v1.0.0...project-c@v1.1.0) (2025-07-22)
 
 
