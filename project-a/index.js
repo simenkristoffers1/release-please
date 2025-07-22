@@ -1,1 +1,5 @@
-console.log("Hello, world");
+const logName = (name) => {
+  console.log(`Hello, ${name}`);
+};
+
+logName("John");
