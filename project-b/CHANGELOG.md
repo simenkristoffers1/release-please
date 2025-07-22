@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.1](https://github.com/simenkristoffers1/release-please/compare/project-b-v0.2.0...project-b-v0.2.1) (2025-07-22)
+
+
+### Bug Fixes
+
+* **project-b:** update main loop ([df531bf](https://github.com/simenkristoffers1/release-please/commit/df531bfb59d68dd59be72b4505798d61d3283d7b))
+
 ## [0.2.0](https://github.com/simenkristoffers1/release-please/compare/project-b-v0.1.1...project-b-v0.2.0) (2025-07-22)
 
 
