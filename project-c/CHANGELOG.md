@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/simenkristoffers1/release-please/compare/project-c@v1.2.0...project-c@v1.2.1) (2025-07-22)
+
+
+### Bug Fixes
+
+* update prompt ([aea0671](https://github.com/simenkristoffers1/release-please/commit/aea0671c6fa9f310b061d3195bd2885fcdf75fa5))
+
 ## [1.2.0](https://github.com/simenkristoffers1/release-please/compare/project-c@v1.1.0...project-c@v1.2.0) (2025-07-22)
 
 
