@@ -10,6 +10,10 @@
         "project-b": {
             "component": "project-b",
             "release-type": "python"
+        },
+        "project-c": {
+            "component": "project-c",
+            "release-type": "simple"
         }
     }
 }
