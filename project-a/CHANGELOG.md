@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/simenkristoffers1/release-please/compare/project-a@v1.1.1...project-a@v1.2.0) (2025-07-22)
+
+
+### Features
+
+* update a ([e4c0835](https://github.com/simenkristoffers1/release-please/commit/e4c08358d6f9344b218009394c71f92da05553a0))
+
 ## [1.1.1](https://github.com/simenkristoffers1/release-please/compare/project-a-v1.1.0...project-a@v1.1.1) (2025-07-22)
 
 
