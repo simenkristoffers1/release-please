@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.2](https://github.com/simenkristoffers1/release-please/compare/project-b-v0.2.1...project-b@v0.2.2) (2025-07-22)
+
+
+### Bug Fixes
+
+* **project-b:** update hello ([8e6e614](https://github.com/simenkristoffers1/release-please/commit/8e6e614c228d31fcf94050a8a68facfe76071c63))
+
 ## [0.2.1](https://github.com/simenkristoffers1/release-please/compare/project-b-v0.2.0...project-b-v0.2.1) (2025-07-22)
 
 
