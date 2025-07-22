@@ -1,5 +1,5 @@
 const logName = (name) => {
-  console.log(`Hello, ${name}! This is project-a!!!`);
+  console.log(`Hello, ${name}!`);
 };
 
 logName("Simen");
