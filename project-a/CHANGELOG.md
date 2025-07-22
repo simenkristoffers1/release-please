@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/simenkristoffers1/release-please/compare/project-a@v1.3.0...project-a@v1.3.1) (2025-07-22)
+
+
+### Bug Fixes
+
+* revert prompt ([2373ca8](https://github.com/simenkristoffers1/release-please/commit/2373ca885e72a571d2d381c0151490361c8e94cd))
+
 ## [1.3.0](https://github.com/simenkristoffers1/release-please/compare/project-a@v1.2.1...project-a@v1.3.0) (2025-07-22)
 
 
