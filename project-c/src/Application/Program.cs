@@ -2,5 +2,5 @@
 
 static void SayHello()
 {
-    Console.WriteLine("Hello, world!");
+    Console.WriteLine("Hello, world! My name is Simen");
 }
