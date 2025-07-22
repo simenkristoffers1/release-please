@@ -4,8 +4,6 @@ on:
   push:
     tags:
       - "project-a@v*.*.*"
-  release:
-    types: [created]
 
 jobs:
   deploy-staging:
