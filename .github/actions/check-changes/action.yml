@@ -12,18 +12,9 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - name: Check for changes
+    - name: Check changes
       id: changes
       run: |
-        migrations_changed=false
-        infrastructure_changed=false
-
-        git diff --name-only HEAD~1 HEAD -- 'assistant/src/DbUpMigrator/*.sql' || migrations_changed=true
-        git diff --quiet HEAD^ HEAD infrastructure/ || infrastructure_changed=true
-
-        echo "migrations_changed=$migrations_changed" >> $GITHUB_ENV
-        echo "infrastructure_changed=$infrastructure_changed" >> $GITHUB_ENV
-
-        echo "migrations_changed: $migrations_changed"
-        echo "infrastructure_changed: $infrastructure_changed"
+        chmod +x .github/actions/check-changes/check-changes.sh
+        .github/actions/check-changes/check-changes.sh
       shell: bash
