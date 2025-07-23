@@ -24,7 +24,12 @@ jobs:
 
       - name: Debug release
         run: |
-          echo ${{ steps.release.outputs }}
+          echo ${{ steps.release.outputs.releases_created }}
+          echo ${{ steps.release.outputs.release_created }}
+          echo ${{ steps.release.outputs.paths_released }}
+          echo ${{ steps.release.outputs.prs_created }}
+          echo ${{ steps.release.outputs.pr }}
+          echo ${{ steps.release.outputs.prs }}
 
       - name: Was released
         if: ${{ steps.release.outputs.releases_created }}
