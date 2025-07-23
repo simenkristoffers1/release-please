@@ -53,11 +53,14 @@ runs:
         CHANGED_FILES=$(git diff --name-only ${{ inputs.base_sha }}..HEAD -- "${pathspec_array[@]}")
 
         if [[ -n "$CHANGED_FILES" ]]; then
-          echo "✅ Found changed files:"
-          echo "$CHANGED_FILES"
-          # Use a heredoc to correctly handle multi-line output and filenames with spaces
+          # ✅ Trim the directory prefix from the beginning of each file path.
+          TRIMMED_PATHS=$(echo "$CHANGED_FILES" | sed "s|^${{ inputs.directory }}/||")
+
+          echo "✅ Found changed files (paths relative to directory):"
+          echo "$TRIMMED_PATHS"
+
           echo 'files<<EOF' >> "$GITHUB_OUTPUT"
-          echo "$CHANGED_FILES" >> "$GITHUB_OUTPUT"
+          echo "$TRIMMED_PATHS" >> "$GITHUB_OUTPUT"
           echo 'EOF' >> "$GITHUB_OUTPUT"
         else
           echo "ℹ️ No changed files found for the given pathspec."
