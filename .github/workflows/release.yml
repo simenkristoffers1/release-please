@@ -1,0 +1,42 @@
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  issues: write
+  contents: write
+  pull-requests: write
+
+name: release-please
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4
+        id: release
+        with:
+          token: ${{ secrets.PAT }}
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+      - name: Debug release
+        run: |
+          echo ${{ steps.release.outputs }}
+
+      - name: Assistant release
+        if: ${{ steps.release.outputs['assistant--release_created'] }}
+        run: |
+          echo "Assistant release"
+
+      - name: Chat UI release
+        if: ${{ steps.release.outputs['chat-ui--release_created'] }}
+        run: |
+          echo "Chat UI release"
+
+      - name: Knowledge Search release
+        if: ${{ steps.release.outputs['knowledge-search--release_created'] }}
+        run: |
+          echo "Knowledge Search release"

@@ -1,19 +1,37 @@
 {
+    "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
     "include-component-in-tag": true,
     "tag-separator": "@",
-    "separate-pull-requests": true,
+    "bump-minor-pre-major": true,
+    "bump-patch-for-minor-pre-major": false,
+    "versioning": "default",
     "packages": {
-        "project-a": {
-            "component": "project-a",
-            "release-type": "node"
+        "chat-ui": {
+            "component": "chat-ui",
+            "release-type": "node",
+            "changelog-path": "CHANGELOG.md",
+            "version-file": "package.json",
+            "extra-files": []
         },
-        "project-b": {
-            "component": "project-b",
-            "release-type": "python"
+        "knowledge-search": {
+            "component": "knowledge-search",
+            "release-type": "python",
+            "changelog-path": "CHANGELOG.md",
+            "version-file": "pyproject.toml",
+            "extra-files": []
         },
-        "project-c": {
-            "component": "project-c",
-            "release-type": "simple"
+        "assistant": {
+            "component": "assistant",
+            "release-type": "simple",
+            "changelog-path": "CHANGELOG.md",
+            "version-file": "version.txt",
+            "extra-files": [
+                {
+                    "type": "xml",
+                    "path": "Directory.Build.props",
+                    "xpath": "/Project/PropertyGroup/Version"
+                }
+            ]
         }
     }
 }

@@ -1,5 +1,5 @@
 def main():
-    print("Hello to the world from project-b!")
+    print("Hello from knowledge-search!")
 
 
 if __name__ == "__main__":
