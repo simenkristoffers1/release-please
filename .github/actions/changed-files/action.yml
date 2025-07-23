@@ -1,38 +1,52 @@
-name: Changed Files
-description: Get the changed files in a specific directory
+name: "Find Changed Files"
+description: "Get a list of changed files in a specific directory matching a pattern."
 
 inputs:
   directory:
-    description: The directory to get the changed files from
+    description: "The directory to check for changes (e.g., src)."
+    required: false
+    default: "."
   pattern:
-    description: The pattern to match the changed files
+    description: 'The filename pattern to match within the directory (e.g., "*.js").'
+    required: false
     default: "*"
   base_sha:
-    description: The base SHA to compare against
+    description: "The base SHA to compare against (e.g., ${{ github.event.pull_request.base.sha }})."
+    required: true
     default: fd7a0e8a1e2f4ef6b4dd53b6131b432cfa44b704
 
 outputs:
   changed-files:
-    description: The list of changed files
-    value: ${{ steps.changes.outputs.changed-files }}
+    description: "A newline-separated string of the changed files."
+    value: ${{ steps.get_changes.outputs.files }}
 
 runs:
   using: "composite"
   steps:
-    - uses: actions/checkout@v4
+    - name: Checkout repository
+      uses: actions/checkout@v4
       with:
         fetch-depth: 0
+
     - name: Get changed files
-      id: changes
-      run: |
-        DIFF=$(git diff --name-only ${{ inputs.base_sha }}..HEAD)
-        echo "DIFF: $DIFF"
-        CHANGED_FILES=$(git diff --name-only ${{ inputs.base_sha }}..HEAD -- '${{ inputs.pattern }}')
-        if [ -n "$CHANGED_FILES" ]; then
-          echo "Changed files: $CHANGED_FILES"
-          echo "changed-files=$(echo $CHANGED_FILES)" >> "$GITHUB_OUTPUT"
-        else
-          echo "No changed files"
-          echo "changed-files=" >> "$GITHUB_OUTPUT"
-        fi
+      id: get_changes
       shell: bash
+      run: |
+        # Combine directory and pattern into a pathspec for git
+        PATHSPEC="${{ inputs.directory }}/${{ inputs.pattern }}"
+        echo "ℹ️ Checking for changed files between ${{ inputs.base_sha }} and HEAD using pathspec: $PATHSPEC"
+
+        # Get the newline-separated list of changed files. Quotes around PATHSPEC are important.
+        CHANGED_FILES=$(git diff --name-only ${{ inputs.base_sha }}..HEAD -- "$PATHSPEC")
+
+        if [[ -n "$CHANGED_FILES" ]]; then
+          echo "✅ Found changed files:"
+          echo "$CHANGED_FILES"
+          # Use a heredoc to correctly handle multi-line output and filenames with spaces
+          echo 'files<<EOF' >> "$GITHUB_OUTPUT"
+          echo "$CHANGED_FILES" >> "$GITHUB_OUTPUT"
+          echo 'EOF' >> "$GITHUB_OUTPUT"
+        else
+          echo "ℹ️ No changed files found for the given pathspec."
+          echo "files=" >> "$GITHUB_OUTPUT"
+        fi
