@@ -27,7 +27,7 @@ runs:
       run: |
         DIFF=$(git diff --name-only ${{ inputs.base_sha }}..HEAD)
         echo "DIFF: $DIFF"
-        CHANGED_FILES=$(git diff --name-only ${{ inputs.base_sha }}..HEAD -- ${{ inputs.directory }}/* | grep -E ${{ inputs.pattern }})
+        CHANGED_FILES=$(git diff --name-only ${{ inputs.base_sha }}..HEAD -- '${{ inputs.directory }}/*' | grep -E ${{ inputs.pattern }})
         if [ -n "$CHANGED_FILES" ]; then
           echo "Changed files: $CHANGED_FILES"
           echo "changed-files=$(echo $CHANGED_FILES)" >> "$GITHUB_OUTPUT"
