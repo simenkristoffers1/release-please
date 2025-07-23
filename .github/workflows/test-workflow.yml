@@ -19,4 +19,6 @@ jobs:
         with:
           directory: "project-a"
           patterns: "*.js,*.md"
+          base-sha: fd7a0e8a1e2f4ef6b4dd53b6131b432cfa44b704
+
       - run: echo "${{ steps.changed-files.outputs.changed-files }}"
