@@ -32,21 +32,21 @@ jobs:
           echo prs: ${{ steps.release.outputs.prs }}
 
       - name: Was released
-        if: ${{ steps.release.outputs.releases_created }}
+        if: ${{ steps.release.outputs.releases_created }} == 'true'
         run: |
           echo "Was released"
 
       - name: Assistant release
-        if: ${{ steps.release.outputs['assistant--release_created'] }}
+        if: ${{ steps.release.outputs['assistant--release_created'] }} == 'true'
         run: |
           echo "Assistant release"
 
       - name: Chat UI release
-        if: ${{ steps.release.outputs['chat-ui--release_created'] }}
+        if: ${{ steps.release.outputs['chat-ui--release_created'] }} == 'true'
         run: |
           echo "Chat UI release"
 
       - name: Knowledge Search release
-        if: ${{ steps.release.outputs['knowledge-search--release_created'] }}
+        if: ${{ steps.release.outputs['knowledge-search--release_created'] }} == 'true'
         run: |
           echo "Knowledge Search release"
