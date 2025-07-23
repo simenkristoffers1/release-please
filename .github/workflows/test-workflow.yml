@@ -4,6 +4,10 @@ on:
     branches:
       - main
 
+#defaults:
+#  run:
+#    working-directory: project-a
+#
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
@@ -14,5 +18,5 @@ jobs:
         uses: simenkristoffers1/release-please/.github/actions/changed-files@main
         with:
           directory: "project-a"
-          pattern: "*.{js,md}"
+          pattern: "*.js"
       - run: echo ${{ steps.changed-files.outputs.changed-files }}
