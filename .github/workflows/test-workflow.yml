@@ -4,10 +4,10 @@ on:
     branches:
       - main
 
-#defaults:
-#  run:
-#    working-directory: project-a
-#
+defaults:
+  run:
+    working-directory: project-a
+
 jobs:
   hello_world_job:
     runs-on: ubuntu-latest
