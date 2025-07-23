@@ -6,9 +6,9 @@ inputs:
     description: "The directory to check for changes (e.g., src)."
     required: false
     default: "."
-  pattern:
-    description: 'The filename pattern to match within the directory (e.g., "*.js").'
-    required: false
+  patterns:
+    description: 'A comma-delimited string of filename patterns (e.g., "*.js,*.css").'
+    required: true
     default: "*"
   base_sha:
     description: "The base SHA to compare against"
@@ -33,11 +33,24 @@ runs:
       id: get_changes
       shell: bash
       run: |
-        # Combine directory and pattern into a pathspec for git
-        echo "ℹ️ Checking for changed files between ${{ inputs.base_sha }} and HEAD using pathspec: ${{ inputs.pattern }}"
+        IFS=',' read -r -a pattern_array <<< "${{ inputs.patterns }}"
 
-        # Get the newline-separated list of changed files. Quotes around PATHSPEC are important.
-        CHANGED_FILES=$(git diff --name-only ${{ inputs.base_sha }}..HEAD -- "${{ inputs.pattern }}")
+        # Final array to hold the full pathspecs.
+        pathspec_array=()
+        for pattern in "${pattern_array[@]}"; do
+            # Trim leading/trailing whitespace from each pattern (e.g., " *.js " -> "*.js").
+            trimmed_pattern=$(echo "$pattern" | xargs)
+            # Add the directory and cleaned pattern to the array, ignoring empty entries.
+            if [[ -n "$trimmed_pattern" ]]; then
+                pathspec_array+=("$trimmed_pattern")
+            fi
+        done
+
+        # Combine directory and pattern into a pathspec for git
+        echo "ℹ️ Checking for changed files with pathspecs: ${pathspec_array[@]}"
+
+        # Pass the array of pathspecs to git diff. The quotes are essential.
+        CHANGED_FILES=$(git diff --name-only ${{ inputs.base_sha }}..HEAD -- "${pathspec_array[@]}")
 
         if [[ -n "$CHANGED_FILES" ]]; then
           echo "✅ Found changed files:"

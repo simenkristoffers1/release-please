@@ -18,5 +18,5 @@ jobs:
         uses: simenkristoffers1/release-please/.github/actions/changed-files@main
         with:
           directory: "project-a"
-          pattern: "*.js"
+          patterns: "*.js,*.md"
       - run: echo ${{ steps.changed-files.outputs.changed-files }}
