@@ -27,7 +27,7 @@ jobs:
           echo ${{ steps.release.outputs }}
 
       - name: Was released
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ steps.release.outputs.releases_created }}
         run: |
           echo "Was released"
 
