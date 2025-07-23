@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - id: changed-files
-        uses: ./.github/actions/changed-files@main
+        uses: simenkristoffers1/release-action/.github/actions/changed-files@main
         with:
           directory: "project-a"
           pattern: "*.js"
