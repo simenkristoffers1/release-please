@@ -39,16 +39,16 @@ jobs:
           echo "Was released"
 
       - name: Assistant release
-        if: ${{ steps.release.outputs['assistant--release_created'] }} == 'true'
+        if: ${{ steps.release.outputs['assistant--release_created'] == 'true' }}
         run: |
           echo "Assistant release"
 
       - name: Chat UI release
-        if: ${{ steps.release.outputs['chat-ui--release_created'] }} == 'true'
+        if: ${{ steps.release.outputs['chat-ui--release_created'] == 'true' }}
         run: |
           echo "Chat UI release"
 
       - name: Knowledge Search release
-        if: ${{ steps.release.outputs['knowledge-search--release_created'] }} == 'true'
+        if: ${{ steps.release.outputs['knowledge-search--release_created'] == 'true' }}
         run: |
           echo "Knowledge Search release"
