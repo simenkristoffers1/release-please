@@ -25,14 +25,16 @@ jobs:
       - name: Debug release
         run: |
           echo releases_created: ${{ steps.release.outputs.releases_created }}
-          echo release_created: ${{ steps.release.outputs.release_created }}
+          echo assistant--release_created: ${{ steps.release.outputs['assistant--release_created'] }}
+          echo chat-ui--release_created: ${{ steps.release.outputs['chat-ui--release_created'] }}
+          echo knowledge-search--release_created: ${{ steps.release.outputs['knowledge-search--release_created'] }}
           echo paths_released: ${{ steps.release.outputs.paths_released }}
           echo prs_created: ${{ steps.release.outputs.prs_created }}
           echo pr: ${{ steps.release.outputs.pr }}
           echo prs: ${{ steps.release.outputs.prs }}
 
       - name: Was released
-        if: ${{ steps.release.outputs.releases_created }} == 'true'
+        if: ${{ steps.release.outputs.releases_created }} == true
         run: |
           echo "Was released"
 
