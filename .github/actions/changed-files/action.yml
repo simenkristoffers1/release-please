@@ -1,0 +1,32 @@
+name: Changed Files
+description: Get the changed files in a specific directory
+
+inputs:
+  directory:
+    description: The directory to get the changed files from
+  base_sha:
+    description: The base SHA to compare against
+    default: HEAD~1
+
+outputs:
+  changed-files:
+    description: The list of changed files
+    value: ${{ steps.changes.outputs.changed-files }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Get changed files
+      id: changes
+      run: |
+        DIFF=$(git diff --name-only ${{ inputs.base_sha }}..HEAD)
+        echo "DIFF: $DIFF"
+        CHANGED_FILES=$(git diff --name-only ${{ inputs.base_sha }}..HEAD -- ${{ inputs.directory }}/*)
+        if [ -n "$CHANGED_FILES" ]; then
+          echo "Changed files: $CHANGED_FILES"
+          echo "changed-files=$(echo $CHANGED_FILES)" >> "$GITHUB_OUTPUT"
+        else
+          echo "No changed files"
+          echo "changed-files=" >> "$GITHUB_OUTPUT"
+        fi
+      shell: bash
