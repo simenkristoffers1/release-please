@@ -9,7 +9,7 @@ inputs:
     default: "*"
   base_sha:
     description: The base SHA to compare against
-    default: HEAD~100
+    default: fd7a0e8a1e2f4ef6b4dd53b6131b432cfa44b704
 
 outputs:
   changed-files:
