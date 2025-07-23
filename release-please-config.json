@@ -6,6 +6,11 @@
     "bump-patch-for-minor-pre-major": false,
     "versioning": "default",
     "packages": {
+        ".": {
+            "release-type": "simple",
+            "changelog-path": "CHANGELOG.md",
+            "version-file": "version.txt"
+        },
         "chat-ui": {
             "component": "chat-ui",
             "release-type": "node",
