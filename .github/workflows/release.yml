@@ -34,7 +34,7 @@ jobs:
           echo prs: ${{ steps.release.outputs.prs }}
 
       - name: Was released
-        if: ${{ steps.release.outputs.releases_created }} == true
+        if: ${{ steps.release.outputs.releases_created == 'true' }}
         run: |
           echo "Was released"
 
