@@ -42,7 +42,7 @@ runs:
             trimmed_pattern=$(echo "$pattern" | xargs)
             # Add the directory and cleaned pattern to the array, ignoring empty entries.
             if [[ -n "$trimmed_pattern" ]]; then
-                pathspec_array+=("$trimmed_pattern")
+                pathspec_array+=("${{ inputs.directory }}/$trimmed_pattern")
             fi
         done
 
