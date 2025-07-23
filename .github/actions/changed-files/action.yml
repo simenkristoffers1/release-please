@@ -11,7 +11,7 @@ inputs:
     required: false
     default: "*"
   base_sha:
-    description: "The base SHA to compare against (e.g., ${{ github.event.pull_request.base.sha }})."
+    description: "The base SHA to compare against"
     required: true
     default: fd7a0e8a1e2f4ef6b4dd53b6131b432cfa44b704
 
