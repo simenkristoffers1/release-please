@@ -19,4 +19,4 @@ jobs:
         with:
           directory: "project-a"
           patterns: "*.js,*.md"
-      - run: echo ${{ steps.changed-files.outputs.changed-files }}
+      - run: echo "${{ steps.changed-files.outputs.changed-files }}"
