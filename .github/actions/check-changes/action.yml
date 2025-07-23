@@ -1,0 +1,29 @@
+name: "Check Changes"
+description: "Check if there are changes in specific directories"
+
+outputs:
+  migrations_changed:
+    description: "Are migrations changed?"
+    value: ${{ steps.changes.outputs.migrations_changed }}
+  infrastructure_changed:
+    description: "Is infrastructure changed?"
+    value: ${{ steps.changes.outputs.infrastructure_changed }}
+
+runs:
+  using: "composite"
+  steps:
+    - name: Check for changes
+      id: changes
+      run: |
+        migrations_changed=false
+        infrastructure_changed=false
+
+        git diff --name-only HEAD~1 HEAD -- 'assistant/src/DbUpMigrator/*.sql' || migrations_changed=true
+        git diff --quiet HEAD^ HEAD infrastructure/ || infrastructure_changed=true
+
+        echo "migrations_changed=$migrations_changed" >> $GITHUB_ENV
+        echo "infrastructure_changed=$infrastructure_changed" >> $GITHUB_ENV
+
+        echo "migrations_changed: $migrations_changed"
+        echo "infrastructure_changed: $infrastructure_changed"
+      shell: bash
