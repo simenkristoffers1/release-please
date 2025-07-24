@@ -23,8 +23,11 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - name: Get changed files
-      id: get-changed-files
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
+    - id: get-changed-files
       run: |
         chmod +x .github/actions/changed-files/changed-files.sh
         .github/actions/changed-files/changed-files.sh
