@@ -28,9 +28,7 @@ if [[ -n "$CHANGED_FILES" ]]; then
     echo "✅ Found changed files (paths relative to directory):"
     echo "$TRIMMED_PATHS"
 
-    echo 'files<<EOF' >> "$GITHUB_OUTPUT"
-    echo "$TRIMMED_PATHS" >> "$GITHUB_OUTPUT"
-    echo 'EOF' >> "$GITHUB_OUTPUT"
+    echo 'files=$(echo "$TRIMMED_PATHS")' >> "$GITHUB_OUTPUT"
 else
     echo "ℹ️ No changed files found for the given pathspec."
     echo "files=" >> "$GITHUB_OUTPUT"
