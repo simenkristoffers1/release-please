@@ -23,7 +23,7 @@ CHANGED_FILES=$(git diff --name-only $BASE_SHA..HEAD -- "${pathspec_array[@]}")
 
 if [[ -n "$CHANGED_FILES" ]]; then
     # Trim the directory prefix from the beginning of each file path.
-    TRIMMED_PATHS=$(echo "$CHANGED_FILES" | sed "s|^${DIRECTORY}/||")
+    TRIMMED_PATHS=$(echo "$CHANGED_FILES" | sed "s|^${DIRECTORY}/||" | paste -sd ' ' -)
 
     echo "✅ Found changed files (paths relative to directory):"
     echo "$TRIMMED_PATHS"
