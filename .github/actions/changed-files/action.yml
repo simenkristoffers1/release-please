@@ -28,7 +28,6 @@ runs:
         clean: false
         sparse-checkout: |
           .github/actions/changed-files
-        fetch-depth: 0
 
     - id: get-changed-files
       env:
