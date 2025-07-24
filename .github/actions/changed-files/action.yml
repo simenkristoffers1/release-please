@@ -23,15 +23,9 @@ outputs:
 runs:
   using: "composite"
   steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      with:
-        sparse-checkout: ${{ inputs.directory }}
-        fetch-depth: 0
-
     - name: Get changed files
       id: get-changed-files
-      shell: bash
       run: |
         chmod +x .github/actions/changed-files/changed-files.sh
         .github/actions/changed-files/changed-files.sh
+      shell: bash
