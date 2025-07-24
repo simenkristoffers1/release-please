@@ -25,6 +25,7 @@ runs:
   steps:
     - uses: actions/checkout@v4
       with:
+        sparse-checkout: ${{ inputs.directory }}
         fetch-depth: 0
 
     - id: get-changed-files
