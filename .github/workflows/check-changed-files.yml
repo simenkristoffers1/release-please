@@ -1,0 +1,23 @@
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+permissions:
+  issues: write
+  contents: write
+  pull-requests: write
+
+name: check-changed-files
+
+jobs:
+  check-changed-files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check changed files
+        uses: simenkristoffers1/release-please/.github/actions/changed-files@main
+        with:
+          directory: assistant
+          patterns: "*.sql"
+          base-sha: HEAD~10
