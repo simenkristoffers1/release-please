@@ -18,9 +18,7 @@ jobs:
       - name: Checkout repository (sparse)
         uses: actions/checkout@v4
         with:
-          fetch-depth: 1
-          sparse-checkout: |
-            assistant/
+          fetch-depth: 0
 
       - name: Check changed files
         id: changed-files
