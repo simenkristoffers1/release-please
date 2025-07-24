@@ -25,9 +25,9 @@ runs:
   steps:
     - uses: actions/checkout@v4
       with:
+        clean: false
         sparse-checkout: |
           .github/actions/changed-files
-          ${{ inputs.directory }}
         fetch-depth: 0
 
     - id: get-changed-files
