@@ -28,6 +28,10 @@ runs:
         fetch-depth: 0
 
     - id: get-changed-files
+      env:
+        PATTERN_ARRAY: ${{ inputs.patterns }}
+        DIRECTORY: ${{ inputs.directory }}
+        BASE_SHA: ${{ inputs.base-sha }}
       run: |
         chmod +x .github/actions/changed-files/changed-files.sh
         .github/actions/changed-files/changed-files.sh
