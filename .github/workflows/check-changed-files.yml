@@ -21,7 +21,7 @@ jobs:
         with:
           directory: assistant
           patterns: "*.sql,*.md,*.json,*.cs"
-          base-sha: 6ee24b1ddf12f101ae653d3c6302f72c2eec62c9
+          base-sha: HEAD~1
 
       - name: Debug
         if: steps.changed-files.outputs.files
