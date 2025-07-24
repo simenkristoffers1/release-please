@@ -1,3 +1,7 @@
+#!/bin/bash
+
+set -e
+
 IFS=',' read -r -a pattern_array <<< "${{ inputs.patterns }}"
 
 # Final array to hold the full pathspecs.
