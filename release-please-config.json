@@ -5,10 +5,22 @@
     "bump-minor-pre-major": true,
     "bump-patch-for-minor-pre-major": false,
     "versioning": "default",
+    "plugins": [
+        {
+            "type": "linked-versions",
+            "groupName": "assistant",
+            "components": [
+                "assistant",
+                "dashboard",
+                "knowledge-search"
+            ]
+        }
+    ],
     "packages": {
         ".": {
             "release-type": "simple",
             "changelog-path": "CHANGELOG.md",
+            "skip-github-release": true,
             "version-file": "version.txt",
             "components": [
                 "assistant"
@@ -27,7 +39,7 @@
         },
         "dashboard": {
             "package-name": "dashboard",
-            "component": "assistant",
+            "component": "dashboard",
             "release-type": "node",
             "changelog-path": "CHANGELOG.md",
             "version-file": "package.json",
@@ -35,7 +47,7 @@
         },
         "knowledge-search": {
             "package-name": "knowledge-search",
-            "component": "assistant",
+            "component": "knowledge-search",
             "release-type": "python",
             "changelog-path": "CHANGELOG.md",
             "version-file": "pyproject.toml",
