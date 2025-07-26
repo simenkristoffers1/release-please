@@ -10,11 +10,15 @@
             "release-type": "simple",
             "changelog-path": "CHANGELOG.md",
             "version-file": "version.txt",
+            "components": [
+                "assistant"
+            ],
             "exclude-paths": [
                 "chat-ui"
             ]
         },
         "chat-ui": {
+            "package-name": "chat-ui",
             "component": "chat-ui",
             "release-type": "node",
             "changelog-path": "CHANGELOG.md",
@@ -22,20 +26,23 @@
             "extra-files": []
         },
         "dashboard": {
-            "component": "dashboard",
+            "package-name": "dashboard",
+            "component": "assistant",
             "release-type": "node",
             "changelog-path": "CHANGELOG.md",
             "version-file": "package.json",
             "extra-files": []
         },
         "knowledge-search": {
-            "component": "knowledge-search",
+            "package-name": "knowledge-search",
+            "component": "assistant",
             "release-type": "python",
             "changelog-path": "CHANGELOG.md",
             "version-file": "pyproject.toml",
             "extra-files": []
         },
         "assistant": {
+            "package-name": "assistant",
             "component": "assistant",
             "release-type": "simple",
             "changelog-path": "CHANGELOG.md",
