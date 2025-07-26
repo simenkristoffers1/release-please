@@ -35,6 +35,7 @@
             "release-type": "node",
             "changelog-path": "CHANGELOG.md",
             "version-file": "package.json",
+            "prerelease": true,
             "extra-files": []
         },
         "dashboard": {
