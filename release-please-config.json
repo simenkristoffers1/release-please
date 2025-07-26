@@ -9,10 +9,20 @@
         ".": {
             "release-type": "simple",
             "changelog-path": "CHANGELOG.md",
-            "version-file": "version.txt"
+            "version-file": "version.txt",
+            "exclude-paths": [
+                "chat-ui"
+            ]
         },
         "chat-ui": {
             "component": "chat-ui",
+            "release-type": "node",
+            "changelog-path": "CHANGELOG.md",
+            "version-file": "package.json",
+            "extra-files": []
+        },
+        "dashboard": {
+            "component": "dashboard",
             "release-type": "node",
             "changelog-path": "CHANGELOG.md",
             "version-file": "package.json",
