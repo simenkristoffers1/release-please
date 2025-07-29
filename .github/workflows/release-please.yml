@@ -3,6 +3,11 @@ name: Release Please
 on:
   workflow_dispatch:
 
+permissions:
+  issues: write
+  contents: write
+  pull-requests: write
+
 jobs:
   release-please:
     runs-on: ubuntu-latest
